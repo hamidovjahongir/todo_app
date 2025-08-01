@@ -2,10 +2,12 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 class DatabaseHelper {
+  // default detals
   static const _databaseName = "todo_database.db";
   static const _databaseVersion = 1;
   static const table = 'todos';
 
+  // datas
   static const columnId = 'id';
   static const columnTitle = 'title';
   static const columnDescription = 'description';
@@ -13,6 +15,7 @@ class DatabaseHelper {
   static const columnCreatedAt = 'created_at';
   static const columnUpdatedAt = 'updated_at';
 
+  // singleton 
   DatabaseHelper._privateConstructor();
   static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
 

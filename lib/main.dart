@@ -35,8 +35,6 @@ class MyApp extends StatelessWidget {
             updateTodo: UpdateTodo(repository),
             deleteTodo: DeleteTodo(repository),
           );
-          
-          
         },
         child: const HomePage(),
       ),

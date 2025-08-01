@@ -39,7 +39,16 @@ class TodoItem extends StatelessWidget {
     }
   }
 
-  
+  IconData _getStatusIcon(TodoStatus status) {
+    switch (status) {
+      case TodoStatus.pending:
+        return Icons.schedule;
+      case TodoStatus.inProgress:
+        return Icons.work;
+      case TodoStatus.completed:
+        return Icons.check_circle;
+    }
+  }
 
   void _showEditDialog(BuildContext context) {
     showDialog(
@@ -68,7 +77,10 @@ class TodoItem extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: TodoStatus.values.map((status) {
             return ListTile(
-              
+              leading: Icon(
+                _getStatusIcon(status),
+                color: _getStatusColor(status),
+              ),
               title: Text(_getStatusText(status)),
               trailing: todo.status == status
                   ?  Icon(Icons.check, color: Colors.green)

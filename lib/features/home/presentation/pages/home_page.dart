@@ -59,6 +59,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           controller: _tabController,
           onTap: (index) {
             final TodoBloc bloc = BlocProvider.of<TodoBloc>(context);
+            
             switch (index) {
               case 0:
                 bloc.add(FilterTodos(null)); 

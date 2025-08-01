@@ -39,6 +39,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
     }
   }
 
+  
   void _onFilterTodos(FilterTodos event, Emitter<TodoState> emit) async {
     emit(TodoLoading());
     try {
