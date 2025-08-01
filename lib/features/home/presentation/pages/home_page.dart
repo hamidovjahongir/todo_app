@@ -148,32 +148,53 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               );
             }
             
-            return RefreshIndicator(
-              onRefresh: () async {
-                BlocProvider.of<TodoBloc>(context).add(LoadTodos());
+            return 
+           _tabController.index == 0
+    ? RefreshIndicator(
+        onRefresh: () async {
+          BlocProvider.of<TodoBloc>(context).add(LoadTodos());
+        },
+        child: ListView.builder(
+          padding: const EdgeInsets.all(16),
+          itemCount: state.todos.length,
+          itemBuilder: (context, index) {
+            final todo = state.todos[index];
+            return TodoItem(
+              todo: todo,
+              onStatusChanged: (newStatus) {
+                final updatedTodo = todo.copyWith(status: newStatus);
+                BlocProvider.of<TodoBloc>(context).add(UpdateTodoEvent(updatedTodo));
               },
-
-              child: ListView.builder(
-                padding: const EdgeInsets.all(16),
-                itemCount: state.todos.length,
-                itemBuilder: (context, index) {
-                  final todo = state.todos[index];
-                  return TodoItem(
-                    todo: todo,
-                    onStatusChanged: (newStatus) {
-                      final updatedTodo = todo.copyWith(status: newStatus);
-                      BlocProvider.of<TodoBloc>(context).add(UpdateTodoEvent(updatedTodo));
-                    },
-                    onEdit: (editedTodo) {
-                      BlocProvider.of<TodoBloc>(context).add(UpdateTodoEvent(editedTodo));
-                    },
-                    onDelete: () {
-                      BlocProvider.of<TodoBloc>(context).add(DeleteTodoEvent(todo.id!));
-                    },
-                  );
-                },
-              ),
+              onEdit: (editedTodo) {
+                BlocProvider.of<TodoBloc>(context).add(UpdateTodoEvent(editedTodo));
+              },
+              onDelete: () {
+                BlocProvider.of<TodoBloc>(context).add(DeleteTodoEvent(todo.id!));
+              },
             );
+          },
+        ),
+      )
+    : ListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: state.todos.length,
+        itemBuilder: (context, index) {
+          final todo = state.todos[index];
+          return TodoItem(
+            todo: todo,
+            onStatusChanged: (newStatus) {
+              final updatedTodo = todo.copyWith(status: newStatus);
+              BlocProvider.of<TodoBloc>(context).add(UpdateTodoEvent(updatedTodo));
+            },
+            onEdit: (editedTodo) {
+              BlocProvider.of<TodoBloc>(context).add(UpdateTodoEvent(editedTodo));
+            },
+            onDelete: () {
+              BlocProvider.of<TodoBloc>(context).add(DeleteTodoEvent(todo.id!));
+            },
+          );
+        },
+      );
           }
           
           return const SizedBox.shrink();

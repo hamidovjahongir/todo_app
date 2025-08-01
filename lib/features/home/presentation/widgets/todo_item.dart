@@ -137,7 +137,8 @@ class TodoItem extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
+        child: 
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
