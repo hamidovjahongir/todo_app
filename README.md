@@ -7,10 +7,10 @@ Built using `flutter_bloc` for state management and `sqflite` for local database
 
 ## 🚀 Features
 
-- ✅ Add new tasks
-- ✅ Edit existing tasks
-- ✅ Mark tasks as completed
-- 🗑 Delete tasks
+- ✅ Add new tasks  
+- ✅ Edit existing tasks  
+- ✅ Mark tasks as completed  
+- 🗑 Delete tasks  
 - 📁 Filter tasks by status (e.g. completed, pending)
 
 ---
@@ -23,13 +23,28 @@ Built using `flutter_bloc` for state management and `sqflite` for local database
 
 <img src="screenshots/screenshot3.jpg" alt="Completed Tasks" width="300"/>
 
-
 ---
 
 ## 🧰 Tech Stack
 
-- 🧱 **State Management:** flutter_bloc
-- 🗃 **Local Database:** sqflite
+- 🧱 **State Management:** flutter_bloc  
+- 🗃 **Local Database:** sqflite  
 - 🎨 **UI:** Flutter Material Design
 
+---
 
+## 📥 APK
+
+👉 [Download App](https://t.me/coderkhamidov/117)
+
+---
+
+## 🎬 App Demo Video
+
+▶️ [Watch App in Action](https://t.me/coderkhamidov/119)
+
+---
+
+## 👨‍💻 Developer
+
+Developed with by [coderkhamidov](https://t.me/coderkhamidov)
